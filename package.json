@@ -1,0 +1,24 @@
+{
+  "name": "docx-subscription-prototype",
+  "version": "2.1.0",
+  "private": true,
+  "description": "Full-stack subscription prototype for DOCX/PDF editing",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "check": "node --check src/server.js && node --check src/documentProcessor.js && node --check src/auth.js && node --check src/db.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "better-sqlite3": "^9.6.0",
+    "docx": "^9.0.1",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "mammoth": "^1.8.0",
+    "multer": "^1.4.5-lts.1",
+    "pdf-lib": "^1.17.1",
+    "stripe": "^16.5.0"
+  }
+}
