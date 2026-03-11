@@ -1,7 +1,63 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
-    <meta http-equiv="refresh" content="0; url=/login" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DocX Formatter</title>
+    <link rel="stylesheet" href="styles.css" />
   </head>
-  <body></body>
+  <body>
+    <main class="container">
+      <h1>DocX Subscription Formatter</h1>
+      <p class="subtitle">Upload DOCX/PDF files, pick edits, and download polished output.</p>
+
+      <section class="card" id="authCard">
+        <h2>1) Account</h2>
+        <div class="row">
+          <input id="email" type="email" placeholder="Email" />
+          <input id="password" type="password" placeholder="Password" />
+        </div>
+        <div class="row">
+          <button id="registerBtn">Register</button>
+          <button id="loginBtn">Login</button>
+          <button id="logoutBtn" class="secondary">Logout</button>
+        </div>
+        <p id="authStatus">Not logged in.</p>
+      </section>
+
+      <section class="card" id="billingCard">
+        <h2>2) Subscription</h2>
+        <div class="row">
+          <button id="subscribeBtn">Open Stripe Checkout</button>
+          <button id="mockActivateBtn" class="secondary">Mock Activate (dev)</button>
+        </div>
+        <p id="billingStatus">No active subscription.</p>
+      </section>
+
+      <section class="card" id="processCard">
+        <h2>3) Upload + Apply Edits</h2>
+        <input id="document" type="file" accept=".docx,.pdf" />
+        <fieldset>
+          <legend>Select formatting options</legend>
+          <label><input type="checkbox" name="alignImages" /> Align images</label>
+          <label><input type="checkbox" name="fixParagraphs" /> Fix paragraphs</label>
+          <label><input type="checkbox" name="applyHeadingStyles" /> Apply heading styles</label>
+          <label><input type="checkbox" name="updateFonts" /> Update fonts</label>
+          <label><input type="checkbox" name="addTableOfContents" /> Add table of contents</label>
+          <label><input type="checkbox" name="insertFigureCaptions" /> Insert figure captions</label>
+          <label><input type="checkbox" name="spellCheck" /> Run spell-check</label>
+        </fieldset>
+        <button id="processBtn">Process & Download</button>
+        <p id="processStatus">Waiting for input.</p>
+      </section>
+
+      <section class="card">
+        <h2>Recent jobs</h2>
+        <button id="refreshJobsBtn" class="secondary">Refresh Jobs</button>
+        <ul id="jobs"></ul>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
 </html>

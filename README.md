@@ -1,25 +1,47 @@
-# Monodraft
+# DocX Subscription Web App Prototype
 
-Monodraft is a modern, monochrome, subscription-gated document editing web app.
+This prototype is a single-repo web app with:
+- Front-end UI for auth, subscription, upload, edit checklist, and job history
+- Node/Express backend APIs for auth, billing, and processing
+- File processing for `.docx` and `.pdf`
 
-## What changed
-- **Catchy brand + modern UI**: split auth into a dedicated login page and kept upload/processing in a separate workspace page.
-- **No database**: no SQLite or persistent storage for users/jobs.
-- **Temporary file handling**: uploads are capped at **20MB**, processed, downloaded, then source/output files are deleted from server.
+## Features
 
-## Routes
-- `GET /login` → sign in / sign up
-- `GET /workspace` → upload + formatting workspace
+### Accounts + access control
+- Register/login with email/password
+- JWT-protected APIs
+- Subscription-gated processing endpoint
 
-## Run
-```bash
-npm install
-npm start
-```
-Then open: `http://localhost:3000/login`
+### Stripe billing
+- Creates a Stripe Checkout session for subscription billing
+- Includes `POST /api/billing/mock-activate` for local development flows
 
-## Environment
-Copy `.env.example` to `.env` and set values.
+### File editing workflow
+Upload `.docx` or `.pdf`, select formatting options, and download processed output:
+- Align images
+- Fix paragraphs
+- Apply heading styles
+- Update fonts
+- Add table of contents
+- Insert figure captions
+- Run spell-check
+
+## Run locally (npm)
+
+1. Install dependencies
+   ```bash
+   npm install
+   ```
+2. Configure env
+   ```bash
+   cp .env.example .env
+   ```
+3. Start server
+   ```bash
+   npm start
+   ```
+4. Open http://localhost:3000
 
 ## Notes
-- This is production-oriented in flow and safety (file size limits, temporary storage lifecycle, auth gating), but Stripe subscription state persistence should be backed by webhook-driven user state in a real production deployment.
+- This is a prototype; some transformations are placeholder/heuristic implementations.
+- For production Stripe integration, add webhook handling to sync subscription state.
