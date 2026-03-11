@@ -45,13 +45,3 @@ Upload `.docx` or `.pdf`, select formatting options, and download processed outp
 ## Notes
 - This is a prototype; some transformations are placeholder/heuristic implementations.
 - For production Stripe integration, add webhook handling to sync subscription state.
-
-## Troubleshooting
-- If `npm start` reports missing modules (for example `Cannot find module "dotenv"`), install dependencies first:
-  ```bash
-  npm install
-  ```
-- Then retry:
-  ```bash
-  npm start
-  ```

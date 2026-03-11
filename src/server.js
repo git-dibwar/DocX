@@ -1,20 +1,6 @@
-const fs = require('fs');
+require('dotenv').config();
 const path = require('path');
-
-const requiredPackages = ['express', 'multer', 'bcryptjs', 'jsonwebtoken', 'stripe', 'better-sqlite3', 'mammoth', 'pdf-lib', 'docx'];
-const missingPackages = requiredPackages.filter((pkg) => !fs.existsSync(path.join(__dirname, '..', 'node_modules', pkg)));
-
-if (missingPackages.length) {
-  console.error(`Missing dependencies: ${missingPackages.join(', ')}`);
-  console.error('Run `npm install` from the project root, then run `npm start` again.');
-  process.exit(1);
-}
-
-const dotenvPath = path.join(__dirname, '..', 'node_modules', 'dotenv');
-if (fs.existsSync(dotenvPath)) {
-  require('dotenv').config();
-}
-
+const fs = require('fs');
 const express = require('express');
 const multer = require('multer');
 const bcrypt = require('bcryptjs');
