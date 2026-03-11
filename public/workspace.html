@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Monodraft — Workspace</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar panel glass">
+        <div>
+          <p class="brand">MONODRAFT</p>
+          <h2>Workspace</h2>
+        </div>
+        <div class="topbar-actions">
+          <p id="userState" class="muted">Loading...</p>
+          <button id="logoutBtn" class="ghost">Logout</button>
+        </div>
+      </header>
+
+      <section class="grid">
+        <article class="panel glass">
+          <h3>Subscription</h3>
+          <p id="billingStatus" class="muted">Checking plan status...</p>
+          <div class="row">
+            <button id="checkoutBtn">Open Stripe Checkout</button>
+            <button id="mockActivateBtn" class="ghost">Activate (dev)</button>
+          </div>
+        </article>
+
+        <article class="panel glass">
+          <h3>Upload and process</h3>
+          <p class="muted">Supported formats: .docx, .pdf • max 20MB</p>
+          <input id="document" type="file" accept=".docx,.pdf" />
+
+          <fieldset>
+            <legend>Formatting options</legend>
+            <label><input type="checkbox" name="alignImages" /> Align images</label>
+            <label><input type="checkbox" name="fixParagraphs" /> Fix paragraphs</label>
+            <label><input type="checkbox" name="applyHeadingStyles" /> Apply heading styles</label>
+            <label><input type="checkbox" name="updateFonts" /> Update fonts</label>
+            <label><input type="checkbox" name="addTableOfContents" /> Add table of contents</label>
+            <label><input type="checkbox" name="insertFigureCaptions" /> Insert figure captions</label>
+            <label><input type="checkbox" name="spellCheck" /> Run spell-check</label>
+          </fieldset>
+
+          <button id="processBtn">Process and Download</button>
+          <p id="processStatus" class="muted">Awaiting file.</p>
+        </article>
+      </section>
+    </main>
+    <script src="workspace.js"></script>
+  </body>
+</html>
